@@ -18,7 +18,7 @@ const userCreate = (req, res) => {
   Users.findOne({ email: req.body.email }).then(user => {
     if (!user) {
       Users.create(req.body).then(e => {
-        console.log(e, "created user on database");
+        console.log("created user on database");
       });
       return res.redirect("/users/sign-in");
     }
