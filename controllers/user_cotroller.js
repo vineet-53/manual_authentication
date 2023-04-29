@@ -9,6 +9,11 @@ const userSignUp = (req, res) => {
   if (!user_auth) return res.render("users/signUp");
   return res.redirect("back");
 };
+const userSignOut = (req, res) => {
+  // to clear for signout the user 
+  res.clearCookie("user_auth")
+  return res.redirect("/users/sign-in");
+};
 const userCreate = (req, res) => {
   const { password, confirm_password: confirmPassword } = req.body;
   if (password != confirmPassword) {
@@ -44,13 +49,20 @@ const userLoginSession = (req, res) => {
     }
   });
 };
-const userProfile = (req, res) => {
+const userProfile = async (req, res) => {
   if (!req.cookies.user_auth) return res.redirect("back");
-  return res.render("users/details/profile");
+  const user = await Users.findById(req.cookies.user_auth);
+  const { name: name, email: email } = user;
+  return res.render("users/details/profile", {
+    user_name: name,
+    user_email: email,
+  });
 };
+
 module.exports = {
   userSignIn,
   userSignUp,
+  userSignOut,
   userCreate,
   userLoginSession,
   userProfile,
