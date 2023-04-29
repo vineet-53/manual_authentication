@@ -6,8 +6,7 @@ const userSignIn = (req, res) => {
 };
 const userSignUp = (req, res) => {
   const { user_auth } = req.cookies;
-  if (!user_auth)
-  return res.render("users/signUp");
+  if (!user_auth) return res.render("users/signUp");
   return res.redirect("back");
 };
 const userCreate = (req, res) => {
@@ -46,6 +45,7 @@ const userLoginSession = (req, res) => {
   });
 };
 const userProfile = (req, res) => {
+  if (!req.cookies.user_auth) return res.redirect("back");
   return res.render("users/details/profile");
 };
 module.exports = {
