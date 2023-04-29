@@ -1,7 +1,6 @@
 const Users = require("../models/users");
 const isUserLoggedIn = (req, res) => {
   const { user_auth: user_id } = req.cookies;
-  console.log(user_id);
   Users.findById(user_id).then(user => {
     if (!user) {
       return res.redirect("/users/sign-in");

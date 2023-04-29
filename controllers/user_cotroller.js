@@ -1,9 +1,14 @@
 const Users = require("../models/users");
 const userSignIn = (req, res) => {
-  return res.render("users/signIn");
+  const { user_auth } = req.cookies;
+  if (!user_auth) return res.render("users/signIn");
+  return res.redirect("back");
 };
 const userSignUp = (req, res) => {
+  const { user_auth } = req.cookies;
+  if (!user_auth)
   return res.render("users/signUp");
+  return res.redirect("back");
 };
 const userCreate = (req, res) => {
   const { password, confirm_password: confirmPassword } = req.body;
