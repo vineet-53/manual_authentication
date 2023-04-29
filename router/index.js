@@ -1,6 +1,8 @@
 const express = require("express");
-const { home } = require("../controllers/home_controller");
 const router = express.Router();
-router.get("/", home);
-router.use("/users",  require("./users"));
+const { isUserLoggedIn } = require("../controllers/home_controller");
+
+router.use(express.urlencoded({ extended: true }));
+router.use("/users", require("./users"));
+router.get("/", isUserLoggedIn);
 module.exports = router;

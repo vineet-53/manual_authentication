@@ -10,3 +10,19 @@
 .btn-primary {
   background-color: lightblue;
 }
+.flex {
+  display: flex;
+}
+.minh-100 {
+  min-height: 100vh;
+}
+.jcc {
+  justify-content: center;
+}
+.aic {
+  align-items: center;
+}
+.bold-text {
+  font-size: 2rem;
+  font-weight: 600;
+}
