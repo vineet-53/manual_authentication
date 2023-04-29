@@ -21,14 +21,16 @@ h1 {
   margin-inline: auto;
 }
 input,
-button {
+button,
+a.btn {
   all: unset;
   border: 0.01rem solid grey;
   border-radius: 0.2rem;
 
   padding: 0.5rem 0.8rem;
 }
-button {
+button,
+a.btn {
   cursor: pointer;
   width: max-content;
   margin: auto;

@@ -1,8 +1,12 @@
-<form action="/user/create-user">
+<form action="/users/create-user" method="post">
   <h1 class="tc">Sign Up</h1>
-  <input type="text " placeholder="Your name" />
-  <input type="email" placeholder="Your email" />
-  <input type="password" placeholder="password" />
-  <input type="password" placeholder="confirm password" />
+  <input name="name" required type="text " placeholder="Your name" />
+  <input name="email" type="email" placeholder="Your email" />
+  <input name="password" type="password" placeholder="password" />
+  <input
+    name="confirm_password"
+    type="password"
+    placeholder="confirm password"
+  />
   <button type="submit">SIgn Up</button>
 </form>
